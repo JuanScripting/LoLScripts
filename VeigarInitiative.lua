@@ -1,6 +1,6 @@
 if GetObjectName(GetMyHero()) ~= "Veigar" then return end
 
-local version = "0.9"
+local version = "1"
 
 function AutoUpdate(data)
     if tonumber(data) > tonumber(version) then
