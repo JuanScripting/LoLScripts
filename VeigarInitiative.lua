@@ -2,6 +2,16 @@ if GetObjectName(GetMyHero()) ~= "Veigar" then return end
 
 local version = "0.9"
 
+function AutoUpdate(data)
+    if tonumber(data) > tonumber(ver) then
+        print("New version found! " .. data)
+        print("Downloading update, please wait...")
+        DownloadFileAsync("https://raw.githubusercontent.com/JuanScripting/LoLScripts/master/VeigarInitiative.lua", SCRIPT_PATH .. "VeigarInitiative.lua", function() print("Update Complete, please 2x F6!") return end)
+    end
+end
+
+GetWebResultAsync("https://raw.githubusercontent.com/JuanScripting/LoLScripts/master/Version/VeigarInitiative.version", AutoUpdate)
+
 print ("Veigar Initiative v." .. version .. " Script Loaded")
 require ("OpenPredict")
 require ("DamageLib")
